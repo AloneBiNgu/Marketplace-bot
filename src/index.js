@@ -115,7 +115,6 @@ client.login(process.env.BOT_TOKEN).then(() => {
 					if (category && category.type === 4) {
                         category.children.cache.each(async (channel) => {
                             channel.delete();
-							console.log(`Deleted channel ${channel.name}`);
                         });
                         category.delete();
                     }
