@@ -27,6 +27,10 @@ class rent {
         return shop_schema.findOneAndDelete({ discord_id });
     }
 
+    async get_profile(discord_id) {
+        return shop_schema.findOne({ discord_id });
+    }
+
     async get_profiles() {
         return shop_schema.find({});
     }

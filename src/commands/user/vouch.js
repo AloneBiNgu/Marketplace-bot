@@ -12,7 +12,7 @@ const { create_profile } = require('../../services/rent_service.service');
 const vouch_service = require('../../services/vouch_service.service');
 
 module.exports = {
-	category: 'developer',
+	category: 'user',
 	data: new SlashCommandBuilder()
 		.setName('vouch')
 		.setDescription('Vouch')
@@ -34,7 +34,7 @@ module.exports = {
 
 	async execute(interaction) {
 		await interaction.deferReply({ fetchReply: true });
-		const { guild, options } = interaction;
+		const { options } = interaction;
 		const user = options.getUser('user');
 		const review = options.getString('review') || 'Unknow';
 

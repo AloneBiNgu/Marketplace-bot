@@ -16,6 +16,11 @@ class vouch_service {
         }
         return user;
     }
+
+    async search(discord_id) {
+        const user = await vouch_model.findOne({ discord_id });
+        return user;
+    }
 }
 
 module.exports = new vouch_service;

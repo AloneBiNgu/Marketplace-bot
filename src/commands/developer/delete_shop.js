@@ -6,7 +6,7 @@ const {
 } = require('discord.js');
 
 const ms = require('ms');
-const { create_profile } = require('../../services/rent_service.service');
+const { get_profile, remove_profile } = require('../../services/rent_service.service');
 
 module.exports = {
 	developer: true,
@@ -30,6 +30,7 @@ module.exports = {
 		const { guild, options } = interaction;
 		const user = options.getUser('user');
 
+		const shop = await get_profile(user.id);
 		const category = guild.channels.cache.get(shop.category_id);
         if (category && category.type === 4) {
             category.children.cache.each(async (channel) => {
