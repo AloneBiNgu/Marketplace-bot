@@ -113,12 +113,12 @@ client.login(process.env.BOT_TOKEN).then(() => {
 				if (date_now > expiredAt) {
 					const category = guild.channels.cache.get(shop.category_id);
 					if (category && category.type === 4) {
-                        category.children.cache.each(async (channel) => {
-                            channel.delete();
-                        });
-                        category.delete();
-                    }
-                    remove_profile(shop.discord_id);
+						category.children.cache.each(async (channel) => {
+							channel.delete();
+						});
+						category.delete();
+					}
+					remove_profile(shop.discord_id);
 				}
 			});
 		} catch (error) {
